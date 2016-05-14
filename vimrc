@@ -26,6 +26,7 @@ Plugin 'scrooloose/syntastic'
 " fast editing
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-repeat'
+Plugin 'vim-scripts/AutoComplPop'
 
 " Colorscheme
 Plugin 'sjl/badwolf'
