@@ -58,12 +58,15 @@ let g:multi_cursor_next_key='<C-d>'
 let g:multi_cursor_prev_key='<C-p>'
 let g:multi_cursor_skip_key='<C-l>'
 let g:multi_cursor_quit_key='<Esc>'
-let g:multi_cursor_start_key='<F6>'
 
 let g:current_path_for_nerd_init=expand('%:p:h')
 
 let g:ctrlp_map = '<C-f>'
 let g:ctrlp_cmd = 'CtrlP'
+
+" Foldmod
+set foldmethod=manual
+set foldlevel=0
 
 syntax on
 colorscheme badwolf
@@ -95,7 +98,6 @@ noremap <C-t>				:tabedit
 noremap <C-k>				:!(make)<CR>
 noremap <C-g>				:NERDTreeToggle<CR>
 
-inoremap <C-w>				<Esc>:q!<CR>
 inoremap <C-k>				<Esc>:help key-notation<CR>
 inoremap <C-t>				<Esc>:tabedit 
 
@@ -110,16 +112,12 @@ noremap <C-n>				:!norminette **/*.{c,h}<CR>
 noremap <silent>	<C-s>	:w!<CR>
 noremap <silent>	<C-q>	:qa<CR>
 
-" Disable The Arrow keys
 set textwidth=80
-set foldmethod=manual
-set foldlevel=0
 
 vnoremap <Tab>				>
 vnoremap <S-Tab>			<
 
 set autochdir
-
 set backspace=indent,eol,start
 
 autocmd VimEnter * call s:actionForOpen()
