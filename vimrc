@@ -14,19 +14,19 @@ filetype off                  " required
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
+
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 
 " ide like
 Plugin 'kien/ctrlp.vim'
-Plugin 'scrooloose/nerdtree'
 Plugin 'martinsireau/snipMate'
 Plugin 'scrooloose/syntastic'
 
 " fast editing
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-repeat'
-Plugin 'vim-scripts/AutoComplPop'
+Plugin 'ervandew/supertab'
 
 " Colorscheme
 Plugin 'sjl/badwolf'
@@ -39,6 +39,8 @@ filetype plugin indent on    " required
 filetype plugin on
 set omnifunc=syntaxcomplete#Complete
 
+" Mouse
+set mouse=a
 let g:tube_terminal = "xterm"
 let current_compiler = "gcc"
 
@@ -62,9 +64,6 @@ let g:multi_cursor_start_key='<F6>'
 
 let g:current_path_for_nerd_init=expand('%:p:h')
 
-let g:ctrlp_map = '<C-f>'
-let g:ctrlp_cmd = 'CtrlP'
-
 syntax on
 colorscheme badwolf
 
@@ -77,7 +76,7 @@ set shiftwidth=4
 
 set whichwrap+=<,>,h,l,[,]
 
-hi CursorLine term=bold cterm=bold guibg=black
+hi CursorLine   cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
 
 set noswapfile
 
@@ -93,7 +92,6 @@ noremap <S-Tab>				:tabprevious<CR>
 noremap <Tab>				:tabnext<CR>
 noremap <C-t>				:tabedit 
 noremap <C-k>				:!(make)<CR>
-noremap <C-g>				:NERDTreeToggle<CR>
 
 inoremap <C-w>				<Esc>:q!<CR>
 inoremap <C-k>				<Esc>:help key-notation<CR>
@@ -121,34 +119,3 @@ vnoremap <S-Tab>			<
 set autochdir
 
 set backspace=indent,eol,start
-
-autocmd VimEnter * call s:actionForOpen()
-function! s:actionForOpen()
-	let filename = expand('%:t')
-	NERDTree
-	if !empty(filename)
-		wincmd l
-	endif
-endfunction
-
-autocmd BufCreate * call s:addingNewTab()
-function! s:addingNewTab()
-	let filename = expand('%:t')
-	if winnr('$') < 2 && exists('t:NERDTreeBufName') == 0
-		NERDTree
-		if !empty(filename)
-			wincmd l
-		endif
-	endif
-endfunction
-
-autocmd WinEnter * call s:CloseIfOnlyNerdTreeLeft()
-function! s:CloseIfOnlyNerdTreeLeft()
-	if exists("t:NERDTreeBufName")
-		if bufwinnr(t:NERDTreeBufName) != -1
-			if winnr("$") == 1
-				q
-			endif
-		endif
-	endif
-endfunction
