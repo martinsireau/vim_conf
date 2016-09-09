@@ -63,8 +63,6 @@ let g:multi_cursor_quit_key='<Esc>'
 
 let g:current_path_for_nerd_init=expand('%:p:h')
 
-<<<<<<< HEAD
-=======
 let g:ctrlp_map = '<C-f>'
 let g:ctrlp_cmd = 'CtrlP'
 
@@ -72,7 +70,6 @@ let g:ctrlp_cmd = 'CtrlP'
 set foldmethod=manual
 set foldlevel=0
 
->>>>>>> a0c041419af2c5bd8e9cf6849a3d111d5cab6e37
 syntax on
 colorscheme badwolf
 
