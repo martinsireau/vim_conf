@@ -1,10 +1,10 @@
 " Install vundle if needed
 let vundle_readme=expand('~/.vim/bundle/Vundle.vim/README.md')
 if !filereadable(vundle_readme)
-    echo "Installing Vundle.."
-    echo ""
-    silent !mkdir -p ~/.vim/bundle
-    silent !git clone https://github.com/VundleVim/Vundle.vim ~/.vim/bundle/Vundle.vim
+	echo "Installing Vundle.."
+	echo ""
+	silent !mkdir -p ~/.vim/bundle
+	silent !git clone https://github.com/VundleVim/Vundle.vim ~/.vim/bundle/Vundle.vim
 endif
 
 set nocompatible              " be iMproved, required
@@ -20,13 +20,19 @@ Plugin 'VundleVim/Vundle.vim'
 
 " ide like
 Plugin 'kien/ctrlp.vim'
-Plugin 'martinsireau/snipMate'
 Plugin 'scrooloose/syntastic'
+"Plugin 'martinsireau/snipMate'
+" For snipMate
+Plugin 'MarcWeber/vim-addon-mw-utils'
+Plugin 'tomtom/tlib_vim'
+Plugin 'garbas/vim-snipmate'
+Plugin 'honza/vim-snippets'
 
 " fast editing
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-repeat'
-Plugin 'ervandew/supertab'
+Plugin 'exvim/ex-autocomplpop'
+"Plugin 'ervandew/supertab'
 
 " Colorscheme
 Plugin 'sjl/badwolf'
@@ -38,6 +44,8 @@ filetype plugin indent on    " required
 
 filetype plugin on
 set omnifunc=syntaxcomplete#Complete
+
+:set hlsearch
 
 " Mouse
 set mouse=a
@@ -75,14 +83,16 @@ colorscheme badwolf
 
 set encoding=utf-8
 set ai
-set nu
+set relativenumber
+set number
 set ts=4
 set t_Co=256
 set shiftwidth=4
+set cursorline
 
 set whichwrap+=<,>,h,l,[,]
 
-hi CursorLine   cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
+hi CursorLine term=bold cterm=bold guibg=Grey40
 
 set noswapfile
 
