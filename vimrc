@@ -21,6 +21,7 @@ Plugin 'VundleVim/Vundle.vim'
 " ide like
 Plugin 'kien/ctrlp.vim'
 Plugin 'scrooloose/syntastic'
+Plugin 'scrooloose/nerdtree'
 "Plugin 'martinsireau/snipMate'
 " For snipMate
 Plugin 'MarcWeber/vim-addon-mw-utils'
@@ -103,6 +104,7 @@ set list listchars=tab:»·,trail:·
 noremap <Space><Space>		:tabedit ~/.vimrc<CR>
 
 noremap <C-h> :GundoToggle<CR>
+noremap <C-g> :NERDTreeToggle<CR>
 
 noremap <S-Tab>				:tabprevious<CR>
 noremap <Tab>				:tabnext<CR>
