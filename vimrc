@@ -47,6 +47,7 @@ filetype plugin on
 set omnifunc=syntaxcomplete#Complete
 
 :set hlsearch
+set colorcolumn=80
 
 " Mouse
 set mouse=a
