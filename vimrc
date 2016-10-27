@@ -22,7 +22,11 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'kien/ctrlp.vim'
 Plugin 'scrooloose/syntastic'
 Plugin 'scrooloose/nerdtree'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+
 "Plugin 'martinsireau/snipMate'
+
 " For snipMate
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
@@ -37,6 +41,10 @@ Plugin 'exvim/ex-autocomplpop'
 
 " Colorscheme
 Plugin 'sjl/badwolf'
+Plugin 'YorickPeterse/happy_hacking.vim'
+Plugin 'joshdick/onedark.vim'
+Plugin 'gosukiwi/vim-atom-dark'
+Plugin 'jpo/vim-railscasts-theme'
 Plugin 'justinmk/vim-syntax-extra'
 
 " All of your Plugins must be added before the following line
@@ -44,13 +52,9 @@ call vundle#end()            " required
 filetype plugin indent on    " required
 
 filetype plugin on
-set omnifunc=syntaxcomplete#Complete
 
-:set hlsearch
-set colorcolumn=80
+let g:airline_powerline_fonts = 1
 
-" Mouse
-set mouse=a
 let g:tube_terminal = "xterm"
 let current_compiler = "gcc"
 
@@ -72,15 +76,32 @@ let g:multi_cursor_skip_key='<C-l>'
 let g:multi_cursor_quit_key='<Esc>'
 
 let g:current_path_for_nerd_init=expand('%:p:h')
-
 let g:ctrlp_map = '<C-f>'
 let g:ctrlp_cmd = 'CtrlP'
+
+" Enable bottom line
+set laststatus=2
+
+set omnifunc=syntaxcomplete#Complete
+
+set hlsearch
+set textwidth=80
+set colorcolumn=80
+
+set autochdir
+set backspace=indent,eol,start
+
+" Mouse
+set mouse=a
 
 " Foldmod
 set foldmethod=manual
 set foldlevel=0
 
 syntax on
+"colorscheme atom
+"colorscheme onedark
+"colorscheme happy_hacking
 colorscheme badwolf
 
 set encoding=utf-8
@@ -92,44 +113,32 @@ set t_Co=256
 set shiftwidth=4
 set cursorline
 
-set whichwrap+=<,>,h,l,[,]
+"set whichwrap+=<,>,h,l,[,]
 
 hi CursorLine term=bold cterm=bold guibg=Grey40
 
 set noswapfile
-
 set splitright
-
 set list listchars=tab:»·,trail:·
 
+"Edit my vimrc superfast
 noremap <Space><Space>		:tabedit ~/.vimrc<CR>
 
+"Toggle nerdtree
 noremap <C-h> :GundoToggle<CR>
 noremap <C-g> :NERDTreeToggle<CR>
-
+"Tab for tab
 noremap <S-Tab>				:tabprevious<CR>
 noremap <Tab>				:tabnext<CR>
 noremap <C-t>				:tabedit 
+"convenient shortcut
 noremap <C-k>				:!(make)<CR>
-
-inoremap <C-k>				<Esc>:help key-notation<CR>
-inoremap <C-t>				<Esc>:tabedit 
-
 noremap <S-Right>			<C-w><Right>
 noremap <S-Left>			<C-w><Left>
 noremap <S-Up>				<C-w><Up>
 noremap <S-Down>			<C-w><Down>
 
-noremap <C-p>				:!(open /System/Library/Frameworks/ScreenSaver.framework/Resources/ScreenSaverEngine.app)<CR>
-noremap <C-n>				:!norminette **/*.{c,h}<CR>
-
-noremap <silent>	<C-s>	:w!<CR>
-noremap <silent>	<C-q>	:qa<CR>
-
-set textwidth=80
+inoremap <C-t>				<Esc>:tabedit 
 
 vnoremap <Tab>				>
 vnoremap <S-Tab>			<
-
-set autochdir
-set backspace=indent,eol,start
