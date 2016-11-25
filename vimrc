@@ -20,10 +20,11 @@ Plugin 'VundleVim/Vundle.vim'
 
 " ide like
 Plugin 'kien/ctrlp.vim'
-Plugin 'scrooloose/syntastic'
+"Plugin 'scrooloose/syntastic'
 Plugin 'scrooloose/nerdtree'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
+Plugin 'w0rp/ale'
 
 "Plugin 'martinsireau/snipMate'
 
@@ -58,13 +59,18 @@ let g:airline_powerline_fonts = 1
 let g:tube_terminal = "xterm"
 let current_compiler = "gcc"
 
-let g:syntastic_cpp_compiler = 'gcc'
-let g:syntastic_cpp_compiler_options = ' -std=c++11 -stdlib=libc++ -Wall -Werror -Wextra'
-let g:syntastic_check_on_open=1
-let g:syntastic_enable_signs=1
-let g:syntastic_cpp_check_header = 1
-let g:syntastic_cpp_remove_include_errors = 1
-let g:syntastic_c_include_dirs = ['../../../include', '../../include','../include','./include']
+"let g:syntastic_cpp_compiler = 'gcc'
+"let g:syntastic_cpp_compiler_options = ' -std=c++11 -stdlib=libc++ -Wall -Werror -Wextra'
+"let g:syntastic_check_on_open=1
+"let g:syntastic_enable_signs=1
+"let g:syntastic_cpp_check_header = 1
+"let g:syntastic_cpp_remove_include_errors = 1
+"let g:syntastic_c_include_dirs = ['../../../include', '../../include','../include','./include']
+
+let g:ale_sign_column_always = 1
+let g:ale_c_gcc_options = '-Wall -Werror -Wextra -I./include -I./../include'
+let g:ale_cpp_gcc_options = '-Wall -Werror -Wextra -I./include -I./../include -std=c++11'
+let g:ale_c_include_dirs = ['../../../include', '../../include','../include','./include']
 
 let g:gundo_width = 60
 let g:gundo_preview_height = 40
