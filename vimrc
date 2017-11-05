@@ -48,6 +48,8 @@ Plugin 'joshdick/onedark.vim'
 Plugin 'gosukiwi/vim-atom-dark'
 Plugin 'jpo/vim-railscasts-theme'
 Plugin 'justinmk/vim-syntax-extra'
+Plugin 'morhetz/gruvbox'
+
 " syntax on for swift
 Plugin 'kballard/vim-swift'
 
@@ -109,10 +111,11 @@ set foldmethod=manual
 set foldlevel=0
 
 syntax on
+set background=dark
+colorscheme gruvbox
 "colorscheme atom
 "colorscheme onedark
 "colorscheme happy_hacking
-colorscheme badwolf
 
 set encoding=utf-8
 set ai
@@ -152,3 +155,5 @@ inoremap <C-t>				<Esc>:tabedit
 
 vnoremap <Tab>				>
 vnoremap <S-Tab>			<
+
+let g:ale_emit_conflict_warnings = 0
